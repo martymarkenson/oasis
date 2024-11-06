@@ -17,6 +17,7 @@ interface Auction {
   endDate: Date;
   charity: string;
   totalBids?: number;
+  currentBid?: number;
 }
 
 export default function EndingSoon() {
@@ -62,6 +63,7 @@ export default function EndingSoon() {
               title: auction.title,
               mainImage: auction.mainImage,
               marketValue: auction.marketValue,
+              currentBid: auction.currentBid || 0,
               totalBids: auction.totalBids || 0,
               endDate: new Date(auction.endDate),
               charity: auction.charity || 'Local Community Fund',

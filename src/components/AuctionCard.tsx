@@ -17,10 +17,11 @@ interface AuctionCardProps {
       url: string;
     };
     marketValue: number;
-    totalBids: number;
+    currentBid: number;
     endDate: Date;
     charity: string;
     auctionLink: string;
+    totalBids: number;
   };
 }
 
@@ -71,7 +72,9 @@ export default function AuctionCard({ auction }: AuctionCardProps) {
                   <span className="font-medium text-green-600">Savings</span>
                 </div>
                 <div className="text-right">
-                  <span className="font-bold text-green-600">${(auction.marketValue - auction.totalBids).toLocaleString()} (10%)</span>
+                  <span className="font-bold text-green-600">
+                    ${(auction.marketValue - (auction.currentBid || 0)).toLocaleString()} (10%)
+                  </span>
                 </div>
               </div>
             </div>
@@ -81,7 +84,7 @@ export default function AuctionCard({ auction }: AuctionCardProps) {
                 <TrendingUp className="w-4 h-4 text-blue-500" />
                 <span className="font-medium">Current Bid</span>
               </div>
-              <span className="font-bold text-black">${auction.totalBids.toLocaleString()}</span>
+              <span className="font-bold text-black">${auction.currentBid?.toLocaleString() || 0}</span>
             </div>
 
             <div className="flex items-center justify-between">

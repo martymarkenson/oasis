@@ -10,26 +10,28 @@ const client = new ApolloClient({
 });
 
 const GET_LISTINGS = gql`
-  query GetListings {
-    listingsConnection {
-      edges {
-        node {
-          id
-          title
-          mainImage {
-            url
-          }
-          currentBid
-          startingBid
-          marketValue
-          endDate
-          location
-          description
-          charity
+query GetAllListings {
+  listingsConnection {
+    edges {
+      node {
+        id
+        title
+        mainImage {
+          url
         }
+        currentBid
+        marketValue
+        endDate
+        location
+        description
+        charity
+        totalBids
+        createdAt
+        updatedAt
       }
     }
   }
+}
 `;
 
 
