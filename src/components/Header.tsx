@@ -50,20 +50,20 @@ const Header = () => {
             <nav className="hidden md:block">
               <ul className="flex items-center gap-8">
                 <li>
-                  <a href="#how-it-works" className="text-gray-600 hover:text-gray-900 transition-colors">
-                    How it Works
+                  <a href="/about" className="text-gray-600 hover:text-gray-900 transition-colors">
+                    About
                   </a>
                 </li>
-                {['Blog', 'About', 'Contact'].map((item) => (
-                  <li key={item}>
-                    <a 
-                      href={`/${item.toLowerCase()}`}
-                      className="text-gray-600 hover:text-gray-900 transition-colors"
-                    >
-                      {item}
-                    </a>
-                  </li>
-                ))}
+                <li>
+                  <a href="/blog" className="text-gray-600 hover:text-gray-900 transition-colors">
+                    Blog
+                  </a>
+                </li>
+                <li>
+                  <a href="/contact" className="text-gray-600 hover:text-gray-900 transition-colors">
+                    Contact
+                  </a>
+                </li>
               </ul>
             </nav>
 

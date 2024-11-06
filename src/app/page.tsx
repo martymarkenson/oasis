@@ -103,7 +103,7 @@ export default function Home() {
                 Smart travelers save big while supporting local causes.
               </p>
 
-              <div className="flex justify-center gap-6 mb-12 text-sm text-gray-500">
+              <div className="flex justify-center gap-6 mb-5 text-sm text-gray-500">
                 <div className="flex items-center gap-2">
                   <Check size={16} className="text-green-500" />
                   50,000+ members
@@ -242,48 +242,6 @@ export default function Home() {
         </div>
 
         <EndingSoon />
-        <ComingThisMonth />
-
-        <div className="container mx-auto px-4 py-16 border-t">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4 text-black" id="how-it-works">How It Works</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Join thousands of smart travelers who are revolutionizing luxury travel through our unique auction platform.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center p-6">
-              <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-blue-600 font-bold text-xl">1</span>
-              </div>
-              <h3 className="font-bold text-xl mb-2 text-black">Access Exclusive Auctions</h3>
-              <p className="text-gray-600">
-                Browse hand-picked luxury stays from trusted charity partners.
-              </p>
-            </div>
-
-            <div className="text-center p-6">
-              <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-blue-600 font-bold text-xl">2</span>
-              </div>
-              <h3 className="font-bold text-xl mb-2 text-black">Get Insider Prices</h3>
-              <p className="text-gray-600">
-                Bid on premium vacations at up to 50% below market rates.
-              </p>
-            </div>
-
-            <div className="text-center p-6">
-              <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-blue-600 font-bold text-xl">3</span>
-              </div>
-              <h3 className="font-bold text-xl mb-2 text-black">Travel With Purpose</h3>
-              <p className="text-gray-600">
-                Enjoy luxury stays while supporting local communities.
-              </p>
-            </div>
-          </div>
-        </div>
 
         <footer className="bg-blue-600">
           <div className="container mx-auto px-4 py-12">
