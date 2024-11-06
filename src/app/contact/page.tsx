@@ -38,7 +38,7 @@ export default function ContactPage() {
           <div className="absolute -left-1/4 -bottom-1/4 w-1/2 h-1/2 bg-purple-100 rounded-full blur-3xl opacity-30" />
         </div>
 
-        <div className="container mx-auto px-4 py-24 relative">
+        <div className="container mx-auto px-4 py-25 relative mt-20">
           <div className="max-w-4xl mx-auto">
             {/* Header */}
             <h1 className="text-4xl font-bold text-center mb-12">
@@ -101,9 +101,9 @@ export default function ContactPage() {
                 <button
                   type="submit"
                   disabled={status !== 'idle'}
-                  className="w-full md:w-auto px-8 py-3 rounded-xl font-medium relative overflow-hidden
+                  className="w-full md:w-[500px] mx-auto px-8 py-3 rounded-xl font-medium relative overflow-hidden
                            transition-all duration-300 hover:shadow-lg hover:scale-[1.02]
-                           disabled:opacity-50 disabled:cursor-not-allowed group"
+                           disabled:opacity-50 disabled:cursor-not-allowed group block"
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-600" />
                   <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-purple-800 to-blue-600

@@ -74,18 +74,14 @@ export const Footer = () => {
                 <div className="grid grid-cols-2 gap-12">
                   <div>
                     <ul className="space-y-4">
-                      {['About', 'Contact'].map((item) => (
+                      {['Travel Deals', 'About', 'Contact'].map((item) => (
                         <li key={item}>
                           <a 
-                            href={`/${item.toLowerCase()}`}
+                            href={item === 'Travel Deals' ? '/' : `/${item.toLowerCase()}`}
                             className="text-blue-100 hover:text-white transition-all duration-300
                                    flex items-center group"
                           >
-                            <span className="relative">
-                              {item}
-                              <span className="absolute left-0 bottom-0 w-0 h-px bg-white transition-all 
-                                             duration-300 group-hover:w-full"></span>
-                            </span>
+                            {item}
                           </a>
                         </li>
                       ))}
@@ -100,11 +96,7 @@ export const Footer = () => {
                             className="text-blue-100 hover:text-white transition-all duration-300
                                    flex items-center group"
                           >
-                            <span className="relative">
-                              {item}
-                              <span className="absolute left-0 bottom-0 w-0 h-px bg-white transition-all 
-                                             duration-300 group-hover:w-full"></span>
-                            </span>
+                            {item}
                           </a>
                         </li>
                       ))}

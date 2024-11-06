@@ -15,7 +15,7 @@ export default function AboutPage() {
           <div className="absolute -left-1/4 -bottom-1/4 w-1/2 h-1/2 bg-purple-100 rounded-full blur-3xl opacity-30" />
         </div>
 
-        <div className="container mx-auto px-4 py-24 relative">
+        <div className="container mx-auto px-4 py-25 relative mt-20">
           <div className="max-w-3xl mx-auto">
             {/* Header */}
             <h1 className="text-4xl font-bold text-center mb-2">
@@ -50,23 +50,23 @@ export default function AboutPage() {
                 <div className="flex-shrink-0">
                   <div className="relative w-40 h-40">
                     <Image
-                      src="/images/founder.jpg"
-                      alt="Sarah Chen - Founder"
+                      src="/images/avatars/founder.jpg"   
+                      alt="Marty Markenson - Founder"
                       fill
                       className="rounded-xl object-cover"
                     />
                   </div>
                 </div>
                 <div>
-                  <div className="mb-4 relative h-12 w-[180px]">
+                  <div className="mb-4 relative h-20 w-[240px] -ml-10 mt-4">
                     <Image
                       src="/images/signature.png"
-                      alt="Sarah Chen's signature"
+                      alt="Marty Markenson's signature"
                       fill
                       className="object-contain"
                     />
                   </div>
-                  <h3 className="font-semibold text-gray-900">Sarah Chen</h3>
+                  <h3 className="font-semibold text-gray-900">Marty Markenson</h3>
                   <p className="text-gray-600">Founder & CEO</p>
                 </div>
               </div>
