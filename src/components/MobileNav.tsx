@@ -20,6 +20,17 @@ const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose }) => {
           <ul className="space-y-2">
             <li>
               <a 
+                href="/" 
+                className="block px-6 py-3.5 rounded-xl text-gray-600 
+                         hover:bg-gray-50/80 hover:text-gray-900
+                         transition-colors text-lg font-medium"
+                onClick={onClose}
+              >
+                Travel Deals
+              </a>
+            </li>
+            <li>
+              <a 
                 href="/about" 
                 className="block px-6 py-3.5 rounded-xl text-gray-600 
                          hover:bg-gray-50/80 hover:text-gray-900

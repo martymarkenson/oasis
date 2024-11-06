@@ -132,7 +132,7 @@ export default function AuctionCard({ auction }: AuctionCardProps) {
                            transition-opacity duration-150" 
             />
             <span className="relative text-white font-bold">
-              Place Bid
+              Learn More
             </span>
           </button>
         </div>
