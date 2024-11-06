@@ -8,12 +8,15 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+      animation: {
+        smoothFlow: 'smoothFlow 4s linear infinite',
+      },
+      keyframes: {
+        smoothFlow: {
+          to: { backgroundPosition: '200% center' },
+        },
       },
     },
   },
-  plugins: [],
 };
 export default config;
