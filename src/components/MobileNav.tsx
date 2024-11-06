@@ -11,9 +11,9 @@ const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose }) => {
     <div 
       className={`
         md:hidden absolute top-full left-0 right-0 
-        bg-white/85 backdrop-blur-xl
+        bg-white backdrop-blur-xl
         shadow-[0_8px_32px_rgba(0,0,0,0.08)]
-        border-t border-gray-50/50
+        border-t border-gray-50
         transition-all duration-300 px-4
         ${isOpen ? 'opacity-100 translate-y-0 rounded-b-lg' : 'opacity-0 -translate-y-4 pointer-events-none'}
       `}

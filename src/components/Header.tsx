@@ -25,10 +25,11 @@ const Header = () => {
 
       <header 
         className={`fixed w-full top-0 z-[999] transition-all duration-300
-          ${scrolled 
-            ? 'bg-white/70 backdrop-blur-lg shadow-[0_2px_20px_rgba(0,0,0,0.04)] border-b border-white/20'
-            : 'bg-white/50 backdrop-blur-xl'}
-          ${isMenuOpen ? 'bg-white/70' : ''}`}
+          ${isMenuOpen 
+            ? 'bg-white shadow-[0_2px_20px_rgba(0,0,0,0.04)]'
+            : scrolled 
+              ? 'bg-white/50 backdrop-blur-lg shadow-[0_2px_20px_rgba(0,0,0,0.04)] border-b border-white/20'
+              : 'bg-white/50 backdrop-blur-xl'}`}
       >
         {/* Gradient border effect */}
         <div className="absolute inset-0 bg-gradient-to-b from-white/50 to-white/20 pointer-events-none" />
