@@ -20,8 +20,11 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   width: 100%;
   overscroll-behavior-y: none;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 html {
   scroll-behavior: smooth;
+  overscroll-behavior-y: none;
 }

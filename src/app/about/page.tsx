@@ -15,7 +15,7 @@ export default function AboutPage() {
           <div className="absolute -left-1/4 -bottom-1/4 w-1/2 h-1/2 bg-purple-100 rounded-full blur-3xl opacity-30" />
         </div>
 
-        <div className="container mx-auto px-4 py-2 relative">
+        <div className="container mx-auto px-4 py-25 relative mt-20">
           <div className="max-w-3xl mx-auto">
             {/* Header */}
             <h1 className="text-4xl font-bold text-center mb-2">
@@ -50,7 +50,7 @@ export default function AboutPage() {
                 <div className="flex-shrink-0">
                   <div className="relative w-40 h-40">
                     <Image
-                      src="/images/founder.jpg"
+                      src="/images/avatars/founder.jpg"   
                       alt="Sarah Chen - Founder"
                       fill
                       className="rounded-xl object-cover"

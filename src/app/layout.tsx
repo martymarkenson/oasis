@@ -32,7 +32,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         suppressHydrationWarning
       >
-        <div className="overflow-y-auto h-screen">{children}</div>
+        <div className="overflow-y-auto h-screen overscroll-none">{children}</div>
       </body>
     </html>
   );
