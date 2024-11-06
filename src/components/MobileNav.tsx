@@ -1,6 +1,3 @@
-import { useEffect, useRef } from 'react';
-import { Menu, X, ChevronDown } from 'lucide-react';
-
 interface MobileNavProps {
   isOpen: boolean;
   onClose: () => void;
@@ -23,28 +20,37 @@ const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose }) => {
           <ul className="space-y-2">
             <li>
               <a 
-                href="#how-it-works" 
+                href="/about" 
                 className="block px-6 py-3.5 rounded-xl text-gray-600 
                          hover:bg-gray-50/80 hover:text-gray-900
                          transition-colors text-lg font-medium"
                 onClick={onClose}
               >
-                How it Works
+                About
               </a>
             </li>
-            {['Blog', 'About', 'Contact'].map((item) => (
-              <li key={item}>
-                <a 
-                  href={`/${item.toLowerCase()}`} 
-                  className="block px-6 py-3.5 rounded-xl text-gray-600 
-                           hover:bg-gray-50/80 hover:text-gray-900
-                           transition-colors text-lg font-medium"
-                  onClick={onClose}
-                >
-                  {item}
-                </a>
-              </li>
-            ))}
+            <li>
+              <a 
+                href="/blog" 
+                className="block px-6 py-3.5 rounded-xl text-gray-600 
+                         hover:bg-gray-50/80 hover:text-gray-900
+                         transition-colors text-lg font-medium"
+                onClick={onClose}
+              >
+                Blog
+              </a>
+            </li>
+            <li>
+              <a 
+                href="/contact" 
+                className="block px-6 py-3.5 rounded-xl text-gray-600 
+                         hover:bg-gray-50/80 hover:text-gray-900
+                         transition-colors text-lg font-medium"
+                onClick={onClose}
+              >
+                Contact
+              </a>
+            </li>
           </ul>
         </nav>
       </div>
