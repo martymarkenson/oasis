@@ -1,6 +1,3 @@
-import { useEffect, useRef } from 'react';
-import { Menu, X, ChevronDown } from 'lucide-react';
-
 interface MobileNavProps {
   isOpen: boolean;
   onClose: () => void;
