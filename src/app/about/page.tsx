@@ -15,7 +15,7 @@ export default function AboutPage() {
           <div className="absolute -left-1/4 -bottom-1/4 w-1/2 h-1/2 bg-purple-100 rounded-full blur-3xl opacity-30" />
         </div>
 
-        <div className="container mx-auto px-4 py-16 relative">
+        <div className="container mx-auto px-4 py-24 relative">
           <div className="max-w-3xl mx-auto">
             {/* Header */}
             <h1 className="text-4xl font-bold text-center mb-2">
