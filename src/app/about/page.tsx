@@ -51,22 +51,22 @@ export default function AboutPage() {
                   <div className="relative w-40 h-40">
                     <Image
                       src="/images/avatars/founder.jpg"   
-                      alt="Sarah Chen - Founder"
+                      alt="Marty Markenson - Founder"
                       fill
                       className="rounded-xl object-cover"
                     />
                   </div>
                 </div>
                 <div>
-                  <div className="mb-4 relative h-12 w-[180px]">
+                  <div className="mb-4 relative h-20 w-[240px] -ml-10 mt-4">
                     <Image
                       src="/images/signature.png"
-                      alt="Sarah Chen's signature"
+                      alt="Marty Markenson's signature"
                       fill
                       className="object-contain"
                     />
                   </div>
-                  <h3 className="font-semibold text-gray-900">Sarah Chen</h3>
+                  <h3 className="font-semibold text-gray-900">Marty Markenson</h3>
                   <p className="text-gray-600">Founder & CEO</p>
                 </div>
               </div>
