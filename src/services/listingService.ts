@@ -28,6 +28,7 @@ query GetAllListings {
         totalBids
         createdAt
         updatedAt
+        auctionLink
       }
     }
   }

@@ -4,7 +4,10 @@ import { Check, X, ArrowRight, Mail } from 'lucide-react';
 interface EmailPopupProps {
   isOpen: boolean;
   onClose: () => void;
-  auction?: any;
+  auction: {
+    auctionLink: string;
+    title: string;
+  };
 }
 
 const EmailPopup: React.FC<EmailPopupProps> = ({ isOpen, onClose, auction }) => {
@@ -19,7 +22,13 @@ const EmailPopup: React.FC<EmailPopupProps> = ({ isOpen, onClose, auction }) => 
     await new Promise(resolve => setTimeout(resolve, 1000));
     setIsSuccess(true);
     await new Promise(resolve => setTimeout(resolve, 1500));
-    onClose();
+    
+    // Redirect to auction link
+    if (auction.auctionLink) {
+      window.location.href = auction.auctionLink;
+    } else {
+      onClose();
+    }
   };
 
   if (!isOpen) return null;
