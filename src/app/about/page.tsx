@@ -1,44 +1,13 @@
 import React from 'react';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 import Image from 'next/image';
 
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-slate-50">
-      {/* Header - reusing from home page */}
-      <header className="bg-white/70 backdrop-blur-md sticky top-0 z-50 border-b border-gray-100">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <div className="font-bold text-3xl text-black">
-              <a href="/" className="hover:text-blue-600">TravelTrades</a>
-            </div>
-            <nav>
-              <ul className="flex items-center gap-8">
-                <li>
-                  <a href="/#how-it-works" className="relative group text-lg text-gray-600 transition-colors duration-300 hover:text-black">
-                    How it Works
-                  </a>
-                </li>
-                <li>
-                  <a href="/blog" className="relative group text-lg text-gray-600 transition-colors duration-300 hover:text-black">
-                    Blog
-                  </a>
-                </li>
-                <li>
-                  <a href="/about" className="relative group text-lg text-gray-600 transition-colors duration-300 hover:text-black">
-                    About
-                  </a>
-                </li>
-                <li>
-                  <a href="/contact" className="relative group text-lg text-gray-600 transition-colors duration-300 hover:text-black">
-                    Contact
-                  </a>
-                </li>
-              </ul>
-            </nav>
-          </div>
-        </div>
-      </header>
-
+      <Header />
+      
       {/* Hero Section */}
       <div className="bg-gradient-to-b from-white to-slate-50 relative overflow-hidden pb-20">
         <div className="absolute inset-0 overflow-hidden">
@@ -46,7 +15,7 @@ export default function AboutPage() {
           <div className="absolute -left-1/4 -bottom-1/4 w-1/2 h-1/2 bg-purple-100 rounded-full blur-3xl opacity-30" />
         </div>
 
-        <div className="container mx-auto px-4 py-16 relative">
+        <div className="container mx-auto px-4 py-24 relative">
           <div className="max-w-3xl mx-auto">
             {/* Header */}
             <h1 className="text-4xl font-bold text-center mb-2">
@@ -106,42 +75,7 @@ export default function AboutPage() {
         </div>
       </div>
 
-      {/* Footer - reusing from home page */}
-      <footer className="bg-blue-600">
-        <div className="container mx-auto px-4 py-12">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            {/* Links Section */}
-            <div className="grid grid-cols-3 gap-8">
-              <div>
-                <div className="font-semibold text-white mb-4">TravelTrades</div>
-                <p className="text-sm text-blue-100">
-                  Luxury travel auctions that make a difference in local communities.
-                </p>
-              </div>
-              <div>
-                <div className="font-semibold text-white mb-4">Company</div>
-                <ul className="space-y-2 text-sm text-blue-100">
-                  <li><a href="/about" className="hover:text-white">About</a></li>
-                  <li><a href="/blog" className="hover:text-white">Blog</a></li>
-                  <li><a href="/contact" className="hover:text-white">Contact</a></li>
-                </ul>
-              </div>
-              <div>
-                <div className="font-semibold text-white mb-4">Resources</div>
-                <ul className="space-y-2 text-sm text-blue-100">
-                  <li><a href="#how-it-works" className="hover:text-white">How it Works</a></li>
-                  <li><a href="/faq" className="hover:text-white">FAQ</a></li>
-                  <li><a href="/terms" className="hover:text-white">Terms of Service</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div className="text-center text-sm text-blue-100 pt-8 mt-8 border-t border-blue-500">
-            © 2024 TravelTrades. All rights reserved.
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 } 
