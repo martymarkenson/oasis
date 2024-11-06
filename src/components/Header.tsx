@@ -26,9 +26,9 @@ const Header = () => {
       <header 
         className={`fixed w-full top-0 z-[999] transition-all duration-300
           ${isMenuOpen 
-            ? 'bg-white shadow-[0_2px_20px_rgba(0,0,0,0.04)]'
+            ? 'bg-white shadow-none'
             : scrolled 
-              ? 'bg-white/50 backdrop-blur-lg shadow-[0_2px_20px_rgba(0,0,0,0.04)] border-b border-white/20'
+              ? 'bg-white/50 backdrop-blur-lg border-b border-white/20'
               : 'bg-white/50 backdrop-blur-xl'}`}
       >
         {/* Gradient border effect */}

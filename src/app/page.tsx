@@ -80,7 +80,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-slate-50">
       <Header />
-      <div className="pt-[72px]">
+      <div className="pt-[60px]">
         <div className="bg-gradient-to-b from-white to-slate-50 relative overflow-hidden">
           <div className="absolute inset-0">
             <div className="absolute right-0 top-0 w-1/2 h-1/2 bg-blue-100 rounded-full blur-3xl opacity-30" />
