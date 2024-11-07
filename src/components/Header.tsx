@@ -57,13 +57,13 @@ const Header = () => {
                   <img 
                     src="/images/gavel2.png" 
                     alt="Gavel" 
-                    className="w-9 h-9 mr-2 -mt-2 object-contain" 
+                    className="w-8 sm:w-10 h-8 sm:h-12 mr-2 -mt-2 object-contain" 
                   />
                 </div>
                 <div className="relative truncate">
-                  <span className="text-2xl md:text-3xl font-semibold text-blue-600">vacations</span>
-                  <span className="text-2xl md:text-3xl font-semibold text-gray-900">forauction</span>
-                  <span className="text-2xl md:text-2xl font-semibold text-gray-900">.com</span>
+                  <span className="text-lg sm:text-1xl md:text-2xl font-semibold text-blue-600">vacations</span>
+                  <span className="text-lg sm:text-1xl md:text-2xl font-semibold text-gray-900">forauction</span>
+                  <span className="text-lg sm:text-1xl md:text-2xl font-semibold text-gray-900">.com</span>
                   {/* Animated underline */}
                   <div
                     className={`absolute bottom-[-1px] left-[-1px] h-[3px] w-[1.8ch] bg-[#66767F]
