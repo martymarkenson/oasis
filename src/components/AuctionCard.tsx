@@ -68,16 +68,23 @@ export default function AuctionCard({ auction }: AuctionCardProps) {
 
   useEffect(() => {
     const updateBidData = async () => {
-      const latestData = await fetchLatestBidData(auction.auctionLink);
-      if (latestData) {
-        setCurrentBidAmount(latestData.currentBid);
-        setTotalBids(latestData.totalBids);
+      try {
+        const latestData = await fetchLatestBidData(auction.auctionLink);
+        if (latestData) {
+          setCurrentBidAmount(latestData.currentBid);
+          setTotalBids(latestData.totalBids);
+        }
+      } catch (error) {
+        console.error('Failed to update bid data:', error);
+        // Fallback to initial values from props
+        setCurrentBidAmount(auction.currentBid);
+        setTotalBids(auction.totalBids);
       }
     };
 
     // Only fetch once when component mounts
     updateBidData();
-  }, [auction.auctionLink]);
+  }, [auction.auctionLink, auction.currentBid, auction.totalBids]);
 
   const handlePlaceBid = () => {
     setIsEmailPopupOpen(true);

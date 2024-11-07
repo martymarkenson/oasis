@@ -26,7 +26,14 @@ export class BrowserService {
     if (!this.browser) {
       console.log('Launching new browser instance');
       this.browser = await chromium.launch({
-        headless: true
+        headless: true,
+        chromiumSandbox: false,
+        executablePath: process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH || undefined,
+        args: [
+          '--no-sandbox',
+          '--disable-setuid-sandbox',
+          '--disable-dev-shm-usage'
+        ]
       });
     }
     return this.browser;
