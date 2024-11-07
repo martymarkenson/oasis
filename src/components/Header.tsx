@@ -42,7 +42,7 @@ const Header = () => {
             {/* Logo */}
             <a href="/" className="relative group">
               <span className="font-bold text-2xl tracking-tight bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent">
-                TravelTrades
+                BidTreat.com
               </span>
               <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-600 to-purple-500 
                             transition-all duration-300 group-hover:w-full"></div>

@@ -31,7 +31,7 @@ export const Footer = () => {
               {/* Company Info */}
               <div className="md:col-span-4 space-y-6">
                 <div>
-                  <div className="font-bold text-2xl text-white mb-4">TravelTrades</div>
+                  <div className="font-bold text-2xl text-white mb-4">BidTreat.com</div>
                   <p className="text-sm text-blue-100 leading-relaxed">
                     Luxury travel auctions that make a difference in local communities.
                     Join us in discovering extraordinary destinations while supporting meaningful causes.
@@ -154,7 +154,7 @@ export const Footer = () => {
             {/* Copyright */}
             <div className="mt-16 pt-8 border-t border-blue-400/20 text-center">
               <p className="text-sm text-blue-100">
-                © 2024 TravelTrades. All rights reserved.
+                © 2024 BidTreat.com. All rights reserved.
               </p>
             </div>
           </div>
