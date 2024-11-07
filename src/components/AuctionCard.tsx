@@ -75,13 +75,8 @@ export default function AuctionCard({ auction }: AuctionCardProps) {
       }
     };
 
-    // Initial fetch
+    // Only fetch once when component mounts
     updateBidData();
-
-    // Set up polling every 30 seconds
-    const interval = setInterval(updateBidData, 30000);
-
-    return () => clearInterval(interval);
   }, [auction.auctionLink]);
 
   const handlePlaceBid = () => {
