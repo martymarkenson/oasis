@@ -48,9 +48,9 @@ const Header = () => {
                   <span className="text-2xl md:text-3xl font-semibold text-gray-900">forauction</span>
                   <span className="text-2xl md:text-2xl font-semibold text-gray-900">.com</span>
                   {/* Animated underline */}
-                  <div className="absolute bottom-0 left-0 h-[2px] w-[2.3ch] bg-black
+                  <div className="absolute bottom-[-1px] left-[-1px] h-[2px] w-[2.3ch] bg-black
                                 transition-all duration-300 ease-in-out
-                                group-hover:w-[100%] rounded-full" />
+                                group-hover:w-[32ch] rounded-full" />
                 </div>
               </div>
             </a>
