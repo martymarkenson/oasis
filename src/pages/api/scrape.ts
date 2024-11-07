@@ -15,7 +15,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   try {
     const browser = await puppeteer.launch({ 
-      headless: "new",
+      headless: true,
       args: ['--no-sandbox', '--disable-setuid-sandbox']
     });
     const page = await browser.newPage();
@@ -51,6 +51,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return res.status(200).json({ currentBid, totalBids });
   } catch (error) {
     console.error('❌ Error scraping auction data:', error);
-    return res.status(500).json({ error: 'Failed to scrape auction data', details: error.message });
+    return res.status(500).json({ 
+      error: 'Failed to scrape auction data', 
+      details: error instanceof Error ? error.message : 'Unknown error'
+    });
   }
 } 
