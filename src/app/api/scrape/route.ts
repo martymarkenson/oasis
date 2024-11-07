@@ -50,16 +50,19 @@ export async function POST(request: Request) {
         timestamp: new Date().toISOString()
       }
     });
-  } catch (error) {
+  } catch (error: unknown) {
     console.log('❌ Error occurred:', error);
-    console.log('Stack trace:', error.stack);
+    console.log('Stack trace:', (error as Error).stack);
+    
+    const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+    const errorStack = error instanceof Error ? error.stack : undefined;
     
     return NextResponse.json({ 
       success: false,
       error: 'Failed to scrape data',
       _debug: {
-        errorMessage: error.message,
-        errorStack: error.stack,
+        errorMessage,
+        errorStack,
         timestamp: new Date().toISOString()
       }
     }, { 

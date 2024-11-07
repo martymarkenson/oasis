@@ -76,7 +76,8 @@ export class BrowserService {
             console.log(`Transformed value for ${key}:`, results[key]);
           }
         } catch (error) {
-          console.log(`Error finding selector ${selector}:`, error.message);
+          const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+          console.log(`Error finding selector ${selector}:`, errorMessage);
         }
       }
       
