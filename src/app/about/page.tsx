@@ -21,7 +21,7 @@ export default function AboutPage() {
             <h1 className="text-4xl font-bold text-center mb-2">
               <span className="text-black">About</span>{' '}
               <span className="bg-gradient-to-r from-blue-600 to-purple-500 inline-block text-transparent bg-clip-text">
-                TravelTrades
+                BidTreat.com
               </span>
             </h1>
 
@@ -29,7 +29,7 @@ export default function AboutPage() {
             <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-8 md:p-12 shadow-sm mb-12">
               <div className="prose prose-lg max-w-none text-gray-600 leading-relaxed mb-12">
                 <p className="mb-6">
-                  I founded TravelTrades with a simple belief: luxury travel shouldn't be out of reach for those who are passionate about experiencing the world's most extraordinary places.
+                  I founded BidTreat.com with a simple belief: luxury travel shouldn't be out of reach for those who are passionate about experiencing the world's most extraordinary places.
                 </p>
                 
                 <p className="mb-6">
@@ -37,7 +37,7 @@ export default function AboutPage() {
                 </p>
                 
                 <p className="mb-6">
-                  Today, TravelTrades has helped thousands of members save over $2.5M on luxury stays while ensuring our partner properties maintain their premium positioning. Even more importantly, every successful auction contributes to local community development projects at our destinations.
+                  Today, BidTreat.com has helped thousands of members save over $2.5M on luxury stays while ensuring our partner properties maintain their premium positioning. Even more importantly, every successful auction contributes to local community development projects at our destinations.
                 </p>
                 
                 <p>

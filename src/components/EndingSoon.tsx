@@ -51,8 +51,8 @@ export default function EndingSoon() {
   return (
     <div className="container mx-auto px-4 py-8 border-t">
       <div className="flex items-center gap-2 mb-4">
-        <Timer className="text-blue-500" size={20} />
-        <h2 className="text-xl font-bold text-black">Ending Soon</h2>
+        <Timer className="text-blue-500" size={30} />
+        <h2 className="text-2xl md:text-3xl font-bold text-black">Ending Soon</h2>
       </div>
       
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
