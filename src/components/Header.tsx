@@ -44,8 +44,8 @@ const Header = () => {
                 <div className="relative flex items-center">
                   <img src="/images/gavel.png" alt="Gavel" className="w-10 h-10 mr-1" />                </div>
                 <div className="relative">
-                  <span className="text-2xl md:text-3xl font-semibold text-blue-600">Bid</span>
-                  <span className="text-2xl md:text-3xl font-semibold text-gray-900">treat</span>
+                  <span className="text-2xl md:text-3xl font-semibold text-blue-600">vacations</span>
+                  <span className="text-2xl md:text-3xl font-semibold text-gray-900">forauction</span>
                   <span className="text-2xl md:text-2xl font-semibold text-gray-900">.com</span>
                   {/* Animated underline */}
                   <div className="absolute bottom-0 left-0 h-[2px] w-[2.3ch] bg-black
