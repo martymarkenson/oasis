@@ -48,12 +48,17 @@ const Header = () => {
                 setIsAnimating(true);
                 setTimeout(() => {
                   setIsAnimating(false);
+                  window.location.href = '/';
                 }, 600);
               }}
             >
               <div className="flex items-center">
                 <div className="relative flex items-center">
-                  <img src="/images/gavel2.png" alt="Gavel" className="w-10 h-10 mr-1" />
+                  <img 
+                    src="/images/gavel2.png" 
+                    alt="Gavel" 
+                    className="w-8 h-8 md:w-10 md:h-10 mr-1 object-contain" 
+                  />
                 </div>
                 <div className="relative">
                   <span className="text-2xl md:text-3xl font-semibold text-blue-600">vacations</span>
