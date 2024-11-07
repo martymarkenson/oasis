@@ -30,14 +30,14 @@ html {
 }
 
 @media (hover: hover) {
-  .group/image:hover img {
+  .image-hover:hover img {
     transition-duration: 1200ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .group/image img {
+  .image-hover img {
     transition-duration: 0s !important;
     transform: none !important;
   }

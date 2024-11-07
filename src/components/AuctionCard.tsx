@@ -52,7 +52,7 @@ export default function AuctionCard({ auction }: AuctionCardProps) {
       >
         <div 
           ref={imageRef} 
-          className="relative aspect-[16/9] overflow-hidden rounded-t-xl group/image"
+          className="relative aspect-[16/9] overflow-hidden rounded-t-xl image-hover"
         >
           <Image 
             src={auction.mainImage.url}
