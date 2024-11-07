@@ -43,14 +43,17 @@ export class BrowserService {
   }
 
   async scrapeData(url: string, config: ScrapeConfig) {
-    const context = await this.getContext();
-    const page = await context.newPage();
+    let context;
+    let page;
     
     try {
+      context = await this.getContext();
+      page = await context.newPage();
+      
       console.log('Navigating to URL:', url);
       await page.goto(url, {
         waitUntil: 'networkidle',
-        timeout: 30000
+        timeout: 15000
       });
       
       const results: { [key: string]: any } = {};
@@ -62,28 +65,26 @@ export class BrowserService {
           const element = await page.$(selector);
           
           if (element) {
-            console.log(`Found element for ${key}`);
             let value;
-            
             if (attribute) {
               value = await element.getAttribute(attribute);
             } else {
               value = await element.textContent();
             }
-            
-            console.log(`Raw value for ${key}:`, value);
             results[key] = transform ? transform(value || '') : value;
-            console.log(`Transformed value for ${key}:`, results[key]);
           }
         } catch (error) {
-          const errorMessage = error instanceof Error ? error.message : 'Unknown error';
-          console.log(`Error finding selector ${selector}:`, errorMessage);
+          console.error(`Error finding selector ${selector}:`, error);
         }
       }
       
       return results;
+    } catch (error) {
+      console.error('Scraping error:', error);
+      throw new Error(`Failed to scrape data: ${error instanceof Error ? error.message : 'Unknown error'}`);
     } finally {
-      await page.close();
+      if (page) await page.close();
+      if (context) await context.close();
     }
   }
 

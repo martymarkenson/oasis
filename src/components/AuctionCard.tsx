@@ -33,7 +33,15 @@ const fetchLatestBidData = async (auctionLink: string) => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({ url: auctionLink }),
+      timeout: 15000
     });
+    
+    if (!response.ok) {
+      const errorData = await response.json();
+      console.error('Scraping failed:', errorData);
+      return null;
+    }
+    
     const data = await response.json();
     return data.success ? data.data : null;
   } catch (error) {

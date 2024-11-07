@@ -1,7 +1,11 @@
 import { NextResponse } from 'next/server';
 import { BrowserService } from '@/services/browserService';
 
-export const maxDuration = 30;
+export const maxDuration = 10;
+
+export const config = {
+  maxDuration: 10, // Set maximum duration to 10 seconds
+};
 
 export async function POST(request: Request) {
   console.log('🟢 API Route: Starting request');
