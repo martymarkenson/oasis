@@ -5,6 +5,7 @@ interface ScrapedAuction {
 
 export class ScrapingService {
   static async scrapeAuctionData(auctionLink: string): Promise<ScrapedAuction> {
+    console.log('🔍 Starting auction scrape for:', auctionLink);
     try {
       const response = await fetch('/api/scrape', {
         method: 'POST',
@@ -14,14 +15,19 @@ export class ScrapingService {
         body: JSON.stringify({ auctionLink }),
       });
 
+      console.log('📡 Response status:', response.status);
+      
       if (!response.ok) {
-        throw new Error('Failed to fetch auction data');
+        const errorData = await response.json();
+        console.error('❌ Scraping error:', errorData);
+        throw new Error(`Failed to fetch auction data: ${JSON.stringify(errorData)}`);
       }
 
       const data = await response.json();
+      console.log('✅ Scraped data:', data);
       return data;
     } catch (error) {
-      console.error('Error fetching auction data:', error);
+      console.error('❌ Error in scraping service:', error);
       return { currentBid: 0, totalBids: 0 };
     }
   }
