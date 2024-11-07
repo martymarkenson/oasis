@@ -44,24 +44,40 @@ export default function AuctionCard({ auction }: AuctionCardProps) {
                    origin-center flex flex-col h-full"
       >
         <div className="relative aspect-[16/9] overflow-hidden rounded-t-xl">
-          <Image 
-            src={auction.mainImage.url}
-            alt={auction.title}
-            fill
-            className="object-cover transition-transform duration-[2000ms] 
-                       ease-[cubic-bezier(0.23,0.96,0.23,0.98)]
-                       group-hover:scale-105
-                       origin-center"
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/30" />
+          <button 
+            onClick={handlePlaceBid}
+            className="w-full h-full relative group/image"
+          >
+            <Image 
+              src={auction.mainImage.url}
+              alt={auction.title}
+              fill
+              className="object-cover transition-transform duration-[3000ms] 
+                         ease-[cubic-bezier(0.23,0.96,0.23,0.98)]
+                         group-hover/image:scale-110
+                         origin-center"
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/30" />
+          </button>
         </div>
 
         <div className="p-4 space-y-3 flex-1 flex flex-col">
           <div className="space-y-1">
-            <h3 className="text-xl font-bold tracking-tight text-black line-clamp-2">{auction.title}</h3>
+            <button 
+              onClick={handlePlaceBid}
+              className="text-left w-full"
+            >
+              <h3 className="text-xl font-bold tracking-tight text-black line-clamp-2 group/title relative inline-block">
+                {auction.title}
+                <div
+                  className="absolute bottom-0 left-0 h-[2px] w-0 bg-blue-600
+                            transition-all duration-300 ease-in-out
+                            group-hover/title:w-full rounded-full"
+                />
+              </h3>
+            </button>
             <span className="text-sm text-gray-500">
-              Supporting <span className="text-blue-600 font-medium">{auction.charity}</span>
+              Supporting <span className="text-gray-500 font-medium">{auction.charity}</span>
             </span>
           </div>
 
@@ -119,10 +135,10 @@ export default function AuctionCard({ auction }: AuctionCardProps) {
           <button 
             onClick={handlePlaceBid}
             className="w-full px-4 py-2 rounded-xl font-medium 
-                     relative overflow-hidden
-                     transition-all duration-300 
-                     hover:shadow-lg hover:scale-[1.02]
-                     group/btn"
+                       relative overflow-hidden
+                       transition-all duration-300 
+                       hover:shadow-lg hover:scale-[1.02]
+                       group/btn"
           >
             <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-600" />
             <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-purple-800 to-blue-600
