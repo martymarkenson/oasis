@@ -53,7 +53,7 @@ const Header = () => {
             >
               <div className="flex items-center">
                 <div className="relative flex items-center">
-                  <img src="/images/gavel.png" alt="Gavel" className="w-10 h-10 mr-1" />
+                  <img src="/images/gavel2.png" alt="Gavel" className="w-10 h-10 mr-1" />
                 </div>
                 <div className="relative">
                   <span className="text-2xl md:text-3xl font-semibold text-blue-600">vacations</span>
