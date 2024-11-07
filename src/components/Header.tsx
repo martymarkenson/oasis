@@ -19,7 +19,6 @@ const Header = () => {
 
   return (
     <>
-      {/* Semi-transparent overlay behind header when menu is open */}
       {isMenuOpen && (
         <div className="fixed inset-0 bg-black/20 backdrop-blur-sm z-[998]" 
              onClick={() => setIsMenuOpen(false)} />
@@ -32,6 +31,7 @@ const Header = () => {
             : scrolled 
               ? 'bg-white/50 backdrop-blur-lg border-b border-white/20'
               : 'bg-white/50 backdrop-blur-xl'}`}
+        style={{ height: '60px' }}
       >
         {/* Gradient border effect */}
         <div className="absolute inset-0 bg-gradient-to-b from-white/50 to-white/20 pointer-events-none" />
