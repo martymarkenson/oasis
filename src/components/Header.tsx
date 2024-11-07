@@ -38,7 +38,7 @@ const Header = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-white/50 to-white/20 pointer-events-none" />
         <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
         
-        <div className="container mx-auto px-6">
+        <div className="container mx-auto px-2 sm:px-6">
           <div className="flex items-center justify-between py-4">
             <a
               href="/"
@@ -48,20 +48,25 @@ const Header = () => {
                 setIsAnimating(true);
                 setTimeout(() => {
                   setIsAnimating(false);
+                  window.location.href = '/';
                 }, 600);
               }}
             >
-              <div className="flex items-center">
-                <div className="relative flex items-center">
-                  <img src="/images/gavel2.png" alt="Gavel" className="w-10 h-10 mr-1" />
+              <div className="flex items-center max-w-[calc(100vw-80px)]">
+                <div className="relative flex-shrink-0">
+                  <img 
+                    src="/images/gavel2.png" 
+                    alt="Gavel" 
+                    className="w-8 sm:w-10 h-8 sm:h-12 mr-2 -mt-2 object-contain" 
+                  />
                 </div>
-                <div className="relative">
-                  <span className="text-2xl md:text-3xl font-semibold text-blue-600">vacations</span>
-                  <span className="text-2xl md:text-3xl font-semibold text-gray-900">forauction</span>
-                  <span className="text-2xl md:text-2xl font-semibold text-gray-900">.com</span>
+                <div className="relative truncate">
+                  <span className="text-lg sm:text-1xl md:text-2xl font-semibold text-blue-600">vacations</span>
+                  <span className="text-lg sm:text-1xl md:text-2xl font-semibold text-gray-900">forauction</span>
+                  <span className="text-lg sm:text-1xl md:text-2xl font-semibold text-gray-900">.com</span>
                   {/* Animated underline */}
                   <div
-                    className={`absolute bottom-[-1px] left-[-1px] h-[2px] w-[1.8ch] bg-[#66767F]
+                    className={`absolute bottom-[-1px] left-[-1px] h-[3px] w-[1.8ch] bg-[#66767F]
                                 transition-all duration-300 ease-in-out
                                 ${isAnimating ? 'w-[32ch]' : 'group-hover:w-[32ch]'} rounded-full`}
                   />
