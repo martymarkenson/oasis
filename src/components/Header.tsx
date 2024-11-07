@@ -61,7 +61,7 @@ const Header = () => {
                   <span className="text-2xl md:text-2xl font-semibold text-gray-900">.com</span>
                   {/* Animated underline */}
                   <div
-                    className={`absolute bottom-[-1px] left-[-1px] h-[2px] w-[1.8ch] bg-black
+                    className={`absolute bottom-[-1px] left-[-1px] h-[2px] w-[1.8ch] bg-[#66767F]
                                 transition-all duration-300 ease-in-out
                                 ${isAnimating ? 'w-[32ch]' : 'group-hover:w-[32ch]'} rounded-full`}
                   />
