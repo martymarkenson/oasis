@@ -43,6 +43,9 @@ export class BrowserService {
   }
 
   async scrapeData(url: string, config: ScrapeConfig) {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 10000); // 10 second timeout
+
     let context;
     let page;
     
@@ -53,7 +56,7 @@ export class BrowserService {
       console.log('Navigating to URL:', url);
       await page.goto(url, {
         waitUntil: 'networkidle',
-        timeout: 15000
+        timeout: 10000
       });
       
       const results: { [key: string]: any } = {};
@@ -83,6 +86,7 @@ export class BrowserService {
       console.error('Scraping error:', error);
       throw new Error(`Failed to scrape data: ${error instanceof Error ? error.message : 'Unknown error'}`);
     } finally {
+      clearTimeout(timeout);
       if (page) await page.close();
       if (context) await context.close();
     }

@@ -27,14 +27,19 @@ interface AuctionCardProps {
 
 const fetchLatestBidData = async (auctionLink: string) => {
   try {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 15000);
+
     const response = await fetch('/api/scrape', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({ url: auctionLink }),
-      timeout: 15000
+      signal: controller.signal
     });
+    
+    clearTimeout(timeoutId);
     
     if (!response.ok) {
       const errorData = await response.json();
@@ -45,7 +50,11 @@ const fetchLatestBidData = async (auctionLink: string) => {
     const data = await response.json();
     return data.success ? data.data : null;
   } catch (error) {
-    console.error('Failed to fetch bid data:', error);
+    if (error instanceof Error && error.name === 'AbortError') {
+      console.error('Request timed out');
+    } else {
+      console.error('Failed to fetch bid data:', error);
+    }
     return null;
   }
 };
