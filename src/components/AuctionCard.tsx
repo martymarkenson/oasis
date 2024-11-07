@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { formatDistanceToNow } from 'date-fns';
 import { VacationAuction } from '../types/types';
 import EmailPopup from './EmailPopup';
@@ -25,10 +25,47 @@ interface AuctionCardProps {
   };
 }
 
+const fetchLatestBidData = async (auctionLink: string) => {
+  try {
+    const response = await fetch('/api/scrape', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ url: auctionLink }),
+    });
+    const data = await response.json();
+    return data.success ? data.data : null;
+  } catch (error) {
+    console.error('Failed to fetch bid data:', error);
+    return null;
+  }
+};
+
 export default function AuctionCard({ auction }: AuctionCardProps) {
   const endDate = new Date(auction.endDate);
   const timeRemaining = isNaN(endDate.getTime()) ? "Invalid date" : formatDistanceToNow(endDate, { addSuffix: true });
   const [isEmailPopupOpen, setIsEmailPopupOpen] = useState(false);
+  const [currentBidAmount, setCurrentBidAmount] = useState(auction.currentBid);
+  const [totalBids, setTotalBids] = useState(auction.totalBids);
+
+  useEffect(() => {
+    const updateBidData = async () => {
+      const latestData = await fetchLatestBidData(auction.auctionLink);
+      if (latestData) {
+        setCurrentBidAmount(latestData.currentBid);
+        setTotalBids(latestData.totalBids);
+      }
+    };
+
+    // Initial fetch
+    updateBidData();
+
+    // Set up polling every 30 seconds
+    const interval = setInterval(updateBidData, 30000);
+
+    return () => clearInterval(interval);
+  }, [auction.auctionLink]);
 
   const handlePlaceBid = () => {
     setIsEmailPopupOpen(true);
@@ -100,7 +137,9 @@ export default function AuctionCard({ auction }: AuctionCardProps) {
                 <TrendingUp className="w-4 h-4 text-blue-500" />
                 <span className="font-medium">Current Bid</span>
               </div>
-              <span className="font-bold text-black">${auction.currentBid?.toLocaleString() || 0}</span>
+              <span className="font-bold text-black">
+                ${currentBidAmount?.toLocaleString() || 0}
+              </span>
             </div>
 
             <div className="flex items-center justify-between">
@@ -118,7 +157,7 @@ export default function AuctionCard({ auction }: AuctionCardProps) {
                 <Users className="w-4 h-4 text-blue-500" />
                 <span className="font-medium">Total Bids</span>
               </div>
-              <span className="font-medium">{auction.totalBids}</span>
+              <span className="font-medium">{totalBids}</span>
             </div>
 
             <div className="flex items-center justify-between text-gray-600">
