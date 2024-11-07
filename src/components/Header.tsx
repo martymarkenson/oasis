@@ -41,9 +41,10 @@ const Header = () => {
           <div className="flex items-center justify-between py-4">
             {/* Logo */}
             <a href="/" className="relative group">
-              <span className="font-bold text-2xl tracking-tight bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent">
-                BidTreat.com
-              </span>
+              <div className="flex items-center">
+                <span className="text-2xl md:text-3xl font-semibold text-gray-900">Bid</span>
+                <span className="text-2xl md:text-3xl font-semibold text-blue-600">treat.com</span>
+              </div>
               <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-600 to-purple-500 
                             transition-all duration-300 group-hover:w-full"></div>
             </a>
