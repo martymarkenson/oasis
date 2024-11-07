@@ -6,11 +6,13 @@ export const maxDuration = 30;
 export async function POST(request: Request) {
   console.log('🟢 API Route: Starting request');
   
+  let url: string | undefined;
+  
   try {
     const body = await request.json();
     console.log('📥 Received request body:', body);
     
-    const { url } = body;
+    ({ url } = body);
     if (!url) {
       console.log('❌ No URL provided');
       throw new Error('URL is required');
@@ -54,7 +56,7 @@ export async function POST(request: Request) {
     console.error('Detailed error:', {
         message: error instanceof Error ? error.message : 'Unknown error',
         stack: error instanceof Error ? error.stack : undefined,
-        url,
+        url: url || 'No URL provided',
         timestamp: new Date().toISOString()
     });
     
@@ -64,7 +66,7 @@ export async function POST(request: Request) {
         _debug: {
             errorMessage: error instanceof Error ? error.message : 'Unknown error',
             errorStack: error instanceof Error ? error.stack : undefined,
-            url,
+            url: url || 'No URL provided',
             timestamp: new Date().toISOString()
         }
     }, { 
