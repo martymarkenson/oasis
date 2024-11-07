@@ -51,22 +51,24 @@ export async function POST(request: Request) {
       }
     });
   } catch (error: unknown) {
-    console.log('❌ Error occurred:', error);
-    console.log('Stack trace:', (error as Error).stack);
-    
-    const errorMessage = error instanceof Error ? error.message : 'Unknown error';
-    const errorStack = error instanceof Error ? error.stack : undefined;
+    console.error('Detailed error:', {
+        message: error instanceof Error ? error.message : 'Unknown error',
+        stack: error instanceof Error ? error.stack : undefined,
+        url,
+        timestamp: new Date().toISOString()
+    });
     
     return NextResponse.json({ 
-      success: false,
-      error: 'Failed to scrape data',
-      _debug: {
-        errorMessage,
-        errorStack,
-        timestamp: new Date().toISOString()
-      }
+        success: false,
+        error: 'Failed to scrape data',
+        _debug: {
+            errorMessage: error instanceof Error ? error.message : 'Unknown error',
+            errorStack: error instanceof Error ? error.stack : undefined,
+            url,
+            timestamp: new Date().toISOString()
+        }
     }, { 
-      status: 500 
+        status: 500 
     });
   }
 } 
