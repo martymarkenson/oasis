@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { formatDistanceToNow } from 'date-fns';
 import { VacationAuction } from '../types/types';
 import EmailPopup from './EmailPopup';
@@ -8,6 +8,7 @@ import Image from 'next/image';
 import { TrendingUp, DollarSign } from 'lucide-react';
 import Link from 'next/link';
 import { Timer, Users } from 'lucide-react';
+import { useScrollZoom } from '@/hooks/useScrollZoom';
 
 interface AuctionCardProps {
   auction: {
@@ -29,9 +30,15 @@ export default function AuctionCard({ auction }: AuctionCardProps) {
   const endDate = new Date(auction.endDate);
   const timeRemaining = isNaN(endDate.getTime()) ? "Invalid date" : formatDistanceToNow(endDate, { addSuffix: true });
   const [isEmailPopupOpen, setIsEmailPopupOpen] = useState(false);
+  const imageRef = useRef<HTMLDivElement>(null);
+  const { scale, translateY, blur } = useScrollZoom(imageRef, 1.15);
 
   const handlePlaceBid = () => {
     setIsEmailPopupOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsEmailPopupOpen(false);
   };
 
   return (      
@@ -39,20 +46,25 @@ export default function AuctionCard({ auction }: AuctionCardProps) {
       <div 
         key={auction.id} 
         className="group bg-white/70 backdrop-blur-md rounded-xl shadow-lg 
-                   hover:shadow-xl transition-all duration-300 relative overflow-hidden
+                   hover:shadow-xl transition-all duration-700 relative overflow-hidden
                    transform hover:scale-[1.02] hover:-translate-y-1
                    origin-center flex flex-col h-full"
       >
-        <div className="relative aspect-[16/9] overflow-hidden rounded-t-xl">
+        <div 
+          ref={imageRef} 
+          className="relative aspect-[16/9] overflow-hidden rounded-t-xl group/image"
+        >
           <Image 
             src={auction.mainImage.url}
             alt={auction.title}
             fill
-            className="object-cover transition-transform duration-[2000ms] 
-                       ease-[cubic-bezier(0.23,0.96,0.23,0.98)]
-                       group-hover:scale-105
-                       origin-center"
+            className="object-cover origin-center will-change-transform"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            style={{
+              transform: `scale(${scale}) translateY(${translateY}px)`,
+              filter: `blur(${blur}px)`,
+              transition: 'all 1200ms cubic-bezier(0.4, 0, 0.2, 1)'
+            }}
           />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/30" />
         </div>
