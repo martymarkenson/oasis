@@ -80,7 +80,12 @@ interface Listing {
     publishedAt: string;
   }[];
 }
-class ListingService {
+export class ListingService {
+  public client: any; // Replace 'any' with your actual GraphQL client type
+  
+  constructor(client: any) {
+    this.client = client;
+  }
 
   async getListing(slug: string) {
     const query = gql`
@@ -110,7 +115,7 @@ class ListingService {
     `;
     
     try {
-      const { data } = await client.query({
+      const { data } = await this.client.query({
         query: query,
         variables: { slug },
       });
@@ -126,7 +131,7 @@ class ListingService {
   }
 
   async getListings() {
-    const { data } = await client.query({
+    const { data } = await this.client.query({
       query: GET_LISTINGS,
       variables: {
         "first": 15,
@@ -140,6 +145,39 @@ class ListingService {
     });
     return data.listingsConnection.edges.map((edge: { node: Listing }) => edge.node);
   }
+
+  async updateListing(id: string, currentBid: number, totalBids: number) {
+    const UPDATE_LISTING = gql`
+      mutation UpdateListing($id: ID!, $currentBid: Float!, $totalBids: Int!) {
+        updateListing(
+          where: { id: $id }
+          data: { 
+            currentBid: $currentBid
+            totalBids: $totalBids
+          }
+        ) {
+          id
+          currentBid
+          totalBids
+        }
+      }
+    `;
+
+    try {
+      const { data } = await this.client.mutate({
+        mutation: UPDATE_LISTING,
+        variables: {
+          id,
+          currentBid,
+          totalBids
+        }
+      });
+      return data.updateListing;
+    } catch (error) {
+      console.error('Error updating listing:', error);
+      throw error;
+    }
+  }
 }
 
-export const listingService = new ListingService();
+export const listingService = new ListingService(client);
