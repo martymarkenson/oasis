@@ -3,5 +3,5 @@
     "path": "/api/cron/update-bids",
     "schedule": "0 0 * * *"
   }],
-  "buildCommand": "npm install && npx playwright install chromium && npm run build"
+  "buildCommand": "npm install && npx playwright install-deps && npx playwright install chromium && npm run build"
 } 
